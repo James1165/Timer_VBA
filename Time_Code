@@ -1,0 +1,38 @@
+Dim n As Long
+Dim TimerActive As Boolean
+
+Sub StarTimer()
+n = 0
+Star_Timer
+
+End Sub
+
+Sub SopTimer()
+
+Stop_Timer
+
+End Sub
+
+Private Sub Star_Timer()
+
+TimerActive = True
+
+timer
+
+End Sub
+
+Private Sub Stop_Timer()
+
+TimerActive = False
+
+End Sub
+
+
+Private Sub timer()
+n = n + 1
+If TimerActive Then
+    ActiveSheet.Cells(n, 1).Value = Time
+    Application.OnTime Now() + TimeValue("00:00:01"), "Timer"
+End If
+
+End Sub
